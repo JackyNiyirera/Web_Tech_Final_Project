@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: pink;
+            padding-top: 40px;
+        }
+
+        .user-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-list h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .user-list table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        .user-list table th,
+        .user-list table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .user-list table th {
+            font-weight: bold;
+        }
+
+        .user-list table tbody tr:nth-of-type(even) {
+            background-color: #f2f2f2;
+        }
+        .navbar {
+            background-color: #212529;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            padding-top: 0px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #333;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover,
+        .navbar-nav .nav-item .nav-link:focus {
+            color: #007bff;
+        }
+    </style>
+    <script>
+        // JavaScript code
+        function addUser() {
+            // Get form values
+            var id = document.getElementById('id').value;
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Perform validation (you can add your own validation logic here)
+            if (!id || !firstName || !lastName || !email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Create new row in the table
+            var tableBody = document.getElementById('userTableBody');
+            var newRow = tableBody.insertRow();
+
+            // Add cells to the new row
+            var idCell = newRow.insertCell();
+            var firstNameCell = newRow.insertCell();
+            var lastNameCell = newRow.insertCell();
+            var emailCell = newRow.insertCell();
+            var passwordCell = newRow.insertCell();
+
+            // Set the cell values
+            idCell.innerHTML = id;
+            firstNameCell.innerHTML = firstName;
+            lastNameCell.innerHTML = lastName;
+            emailCell.innerHTML = email;
+            passwordCell.innerHTML = password;
+
+            // Clear form inputs
+            document.getElementById('id').value = '';
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Order your Food</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Payment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Delivery</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="user-list">
+        <h2>User List</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+            <tbody id="userTableBody">
+            <!-- User rows will be dynamically added here -->
+            </tbody>
+        </table>
+        </div>
+</div>>
+</body>
+</html>

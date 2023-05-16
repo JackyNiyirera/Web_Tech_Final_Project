@@ -1,0 +1,161 @@
+
+<html xmlns:th="http://thmyelead.org"></html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Food Ordering</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: pink;
+            padding-top: 40px;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .navbar a.active {
+            background-color: #6c63ff;
+            color: #fff;
+        }
+
+        .registration-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .registration-form label {
+            font-weight: bold;
+        }
+        .navbar {
+            background-color: #212529;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            padding-top: 0px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #333;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover,
+        .navbar-nav .nav-item .nav-link:focus {
+            color: #007bff;
+        }
+    </style>
+    <script>
+        // JavaScript code
+        function registerUser() {
+            // Get form values
+            var id = document.getElementById('id').value;
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Perform validation (you can add your own validation logic here)
+            if (!id || !firstName || !lastName || !email || !password) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Create user object
+            var user = {
+                id: id,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
+            };
+
+            // Perform further actions (e.g., send data to server, store in database, etc.)
+            console.log(user);
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Order your Food</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Payment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Delivery</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="registration-form">
+        <h2>User Registration</h2>
+        <!--/*@thymesVar id="user" type=""*/-->
+        <form role="form" method="post" th:action="@{/users/new}" th:object="${user}">
+
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+
+            <button type="Edit" class="btn btn-primary btn-block">Edit</button>
+            <button type="cancel" class="btn btn-primary btn-block">Cancel</button>
+        </form>
+        <a href="user-list.html">back to list</a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ </body>

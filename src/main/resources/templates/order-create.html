@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>order Food</title>
+    <title>Food Ordering Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: pink;
+            padding-top: 40px;
+        }
+
+        .order-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .order-form label {
+            font-weight: bold;
+        }
+
+        .order-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .order-form .btn-submit {
+            width: 100%;
+        }
+        .navbar {
+            background-color: #212529;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            padding-top: 0px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #333;
+        }
+
+        .navbar-nav .nav-item .nav-link:hover,
+        .navbar-nav .nav-item .nav-link:focus {
+            color: #007bff;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $("#order-form").submit(function(event) {
+                event.preventDefault();
+
+                // Get form values
+                var foodItemId = $("#foodItemId").val();
+                var userId = $("#userId").val();
+                var quantity = $("#quantity").val();
+                var deliveryAddress = $("#deliveryAddress").val();
+                var paymentMethod = $("#paymentMethod").val();
+
+                // Perform validation (you can add your own validation logic here)
+                if (!foodItemId || !userId || !quantity || !deliveryAddress || !paymentMethod) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+
+                // Do something with the form data (e.g., submit to server)
+
+                // Clear form inputs
+                $("#foodItemId").val("");
+                $("#userId").val("");
+                $("#quantity").val("");
+                $("#deliveryAddress").val("");
+                $("#paymentMethod").val("");
+            });
+        });
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Order your Food</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Payment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Delivery</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="order-form">
+        <h2>Food Ordering Form</h2>
+        <form id="order-form">
+            <div class="form-group">
+                <label for="foodItemId">Food Item ID</label>
+                <select id="foodItemId" class="form-control" required>
+                    <option value="">Select Food Item ID</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="userId">User ID</label>
+                <select id="userId" class="form-control" required>
+                    <option value="">
+                        Select User ID</option>
+                    <!-- Populate options from database -->
+
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="deliveryAddress">Delivery Address</label>
+                <input type="text" id="deliveryAddress" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
